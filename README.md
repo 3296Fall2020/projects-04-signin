@@ -21,4 +21,8 @@ Sign in entries would consist of volunteers at different locations signing in fo
 Sign in entries would consist of patients.  Could keep track of reason for visit and demographics, as well as frequency of visits. This could help to track recurring issues in patients or track how certain issues affect certain demographics.
 
 
+## Feature List
+### Partcipant Information: 
+Full Name, email address, phone number
 [Feature List](https://trello.com/b/SfMUw7OC/feature-list)
+
