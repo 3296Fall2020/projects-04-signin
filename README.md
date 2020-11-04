@@ -13,8 +13,8 @@ For a workplace, nonprofit organizations, or community groups who need primary d
 ### Persona 1: Government Agency
 Sign in entries would consist of agency employees as well as employees from other bureaus. They could be checking into work or they could be meeting with somebody at the agency. Could be used to track who is visiting who, hours worked by employees, and success of the business.
 
-### Persona 2: Volunteer Organization
-Sign in entries would consist of volunteers at different locations signing in for their shift. Could be used to keep track of worker demographics, hours worked, and the number of employees in each location or position. 
+### Persona 2: Anna – Director of Volunteer Organization
+Sign in entries would consist of volunteers at different locations signing in for their shift. Could be used to keep track of worker demographics, hours worked, and the number of employees in each location or position. For example, Anna directs a non-profit organization and needs to keep track of how many volunteers they have and how many hours are being contributed. This is useful in presenting data and letting Anna know where she needs to allocate funds and if she needs to recruit more volunteers. It offers a clean-cut data collector with visuals for easy presentation to stakeholders. 
 
 ### Persona 3: Doctor's Office
 Sign in entries would consist of patients.  Could keep track of reason for visit and demographics, as well as frequency of visits. This could help to track recurring issues in patients or track how certain issues affect certain demographics.
