@@ -9,7 +9,7 @@ This sign-in application is used for general data collection. I first had the id
 Educational Goals Achieved: Contribution to this Open Sourced Project would allow students to demonstrate practical application in front end programming, debugging, access to database, code profiling and optimization, and design patterns.
 
 ## Vision Statement 
-For a workplace, nonprofit organizations, or community groups who need primary data collection, The Sign-in is a web application that provides essential tools for user-specific data and ideally generates graphs that help improve the workflow and keep everything up to date. Unlike other services or web applications, our product is free, provides a friendly user interface to our customers, and assist them in making data collection with creativity, innovation, and ingenuity.  
+For a workplace, nonprofit organizations, or community groups who need primary data collection, the Sign-in is a web application that provides essential tools for user-specific data and ideally generates graphs that help improve the workflow and keep everything updated. Unlike other services or web applications, our product is free, provides a friendly user interface to our customers, and assist them in making data collection with creativity, innovation, and ingenuity.  
 
 ## Three Personas
 ### Persona 1: Government Agency
