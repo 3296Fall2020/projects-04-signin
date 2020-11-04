@@ -9,6 +9,12 @@ Educational Goals Achieved: Contribution to this Open Sourced Project would allo
 ## Vision Statement 
 For a workplace, nonprofit organizations, or community groups who need primary data collection, the Sign-in is a web application that provides essential tools for user-specific data and ideally generates graphs that help improve the workflow and keep everything updated. Unlike other services or web applications, our product is free, provides a friendly user interface to our customers, and assist them in making data collection with creativity, innovation, and ingenuity.  
 
+## Proposed Contribution (in order of priority)
+• Improvement of interface – currently using tkinter but would like to move away from that and potentially use Electron
+• Data collection and cleaning – making sure data entered is in the correct format
+• Being able to generate and see graph data change in real time (through gnuplot type of tool to get away from using excel and allows automation)
+• Would like mobile/cloud hosting so application is not local to the PC
+
 ## Three Personas
 ### Persona 1: Government Agency
 Sign in entries would consist of agency employees as well as employees from other bureaus. They could be checking into work or they could be meeting with somebody at the agency. Could be used to track who is visiting who, hours worked by employees, and success of the business.
