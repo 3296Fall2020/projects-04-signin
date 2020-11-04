@@ -2,12 +2,10 @@
 # Written by Madison Stock - Application Development Intern July-August 2019
 # Last updated August 14, 2019
 
+#testing
 
-
-from tkinter import *
-import numpy as np
-import pandas as pd
 import datetime
+from tkinter import *
 from tkinter import messagebox
 
 after_id = None
