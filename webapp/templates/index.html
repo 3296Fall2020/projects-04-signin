@@ -2,6 +2,7 @@
 
 <html>  
     <head>
+        <!-- include stylesheet and fonts -->
         <link rel="stylesheet" type="text/css" href="static/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
@@ -15,11 +16,13 @@
             </p>
         </div>
         <div class = "submission">
+
+            <!-- this is the submission form that's sent back to app.py -->
             <form action="/" method="POST">
                 <input type="text" name="firstName" placeholder="Enter your first name">
                 <input type="text" name="lastName" placeholder="Enter your last name">
                 <select name="purpose">
-                    <option id = "title" value="" disabled selected>Reason for Visit</option>
+                    <option id = "title" value="" disabled selected>Reason for visit</option>
                     <option value="meeting">Meeting</option>                           
                     <option value="workshop">Workshop</option>
                     <option value="consultation">Consultation</option>
@@ -28,6 +31,9 @@
                 </select>
                 <input type="submit" value="Submit">
             </form>
+            <!-- end submission form -->
+
+            <!-- check for correct form entry -->
             <div class="submitted">
                 {% if submitted %}
                     {% if nameStatus and purposeStatus %}
