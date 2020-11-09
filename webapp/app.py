@@ -11,25 +11,31 @@ def home_page():
 @app.route('/', methods=['POST'])
 def submit():
 
+    # error checking booleans
+    nameStatus = True
+    purposeStatus = True
+
     # retrieve parameters from html form
     firstName = request.form['firstName']
     lastName = request.form['lastName']
-    purpose = request.form['purpose']
+    if 'purpose' in request.form:
+        purpose = request.form['purpose']
+    else:
+        purposeStatus = False
+        purpose = ""
 
     # check for correct input
     if len(firstName) == 0:
-        submissionStatus = False
+        nameStatus = False
     elif len(lastName) == 0:
-        submissionStatus = False
-    else:
-        submissionStatus = True
+        nameStatus = False
 
     print(firstName)
     print(lastName)
     print(purpose)
 
     # return index html with parameters that show the form was submitted correctly
-    return render_template('index.html', submitted=True, submissionStatus = submissionStatus)
+    return render_template('index.html', submitted=True, nameStatus = nameStatus, purposeStatus = purposeStatus)
 
 def run_app():
     app.run(debug=True)

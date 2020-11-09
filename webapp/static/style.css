@@ -1,0 +1,133 @@
+/*
+headings:
+    font-family: 'Abril Fatface', cursive;
+body:
+    font-family: 'Open Sans', sans-serif;
+body (decorative):
+    font-family: 'Raleway', sans-serif;
+*/
+.header p {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2.2rem;
+    line-height: 2.5rem;
+    letter-spacing: .13rem;
+    text-align: center;
+    width: 100%;
+}
+
+body {
+    background-color: #E7F2EC;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    text-align: left;
+    width: 80%;
+}
+
+.submission {
+    width: 100%;
+}
+
+/*
+    by default, styles for mobile screen.
+    media query styles for desktop use
+*/
+@media only screen and (min-width: 800px) {
+    .submission {
+        width: 50%;
+        margin: auto;
+    }
+
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 1rem;
+    margin: .5rem 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: .08rem;
+    background-color: white;
+}
+
+select {
+    cursor: pointer;
+    color: gray;
+    /* transition effect */
+    transition: color 0.3s;
+}
+
+select:hover,
+select:focus {
+  color: black;
+}
+
+select option {
+    line-height: 2rem;
+}
+
+#title {
+    color: #757575;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #E7F2EC;
+    color: black;
+    padding: 1rem;
+    margin: .5rem 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: .1rem;
+
+    /* animation */
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    overflow: hidden;
+    position: relative;
+}
+
+input[type=submit]:hover {
+    background-color: #145963;
+    color: white;
+}
+
+/* animation */
+input[type=submit]:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background: #fff;
+}
+
+input[type=submit]:hover:after,
+    input[type=submit]:active:after {
+    height: 100%;
+}
+
+.submitted p {
+    width: 100%;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: .1rem;
+    font-size: 1rem;
+    padding: 1rem 0;
+}
