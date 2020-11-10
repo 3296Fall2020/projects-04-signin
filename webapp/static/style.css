@@ -45,7 +45,6 @@ p {
     }
 
 }
-
 /* input boxes and dropdown menu styling */
 
 input[type=text], select {
@@ -126,10 +125,48 @@ input[type=submit]:hover:after,
     height: 100%;
 }
 
+/* dob styling */
+
+.dobContainer {
+    width: 100%;
+}
+
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button { 
+    display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #2c3e50;
+}
+
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    color: #95a5a6;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 18px;
+    border:1px solid #ecf0f1;
+    background:#ecf0f1;
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+input[type="date"], focus {
+    color: #95a5a6;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
 
 /* submission error message styling */
 
-.submitted p {
+.submitted p, label {
     width: 100%;
     text-align: center;
     font-family: 'Raleway', sans-serif;

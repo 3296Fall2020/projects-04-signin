@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<!-- ADMIN CONFIG PAGE -->
+
+<html>  
+    <head>
+        <!-- include stylesheet and fonts -->
+        <link rel="stylesheet" type="text/css" href="static/config.css">
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <div class="header">
+            <p>
+                Configuration
+            </p>
+        </div>
+        <div class="submission">
+
+            <form action="/config" method="POST">
+
+                <div class = switchContainer>
+                    <label class="switch">
+                        
+                        {% if add_dob %}
+                            <input type="checkbox" id = "add_dob" name="add_dob" checked>
+                        {% else %}
+                            <input type="checkbox" id = "add_dob" name="add_dob">
+                        {% endif %}
+
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="add_dob" class="textLabel">Include DOB field</label>
+                </div>
+
+                <div class="switchContainer">
+                    <label class="switch">
+
+                        {% if add_gender %}
+                            <input type="checkbox" id="add_gender" name="add_gender" checked>
+                        {% else %}
+                            <input type="checkbox" id="add_gender" name="add_gender">
+                        {% endif %}
+
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="add_gender" class="textLabel">Include gender field</label>
+                </div>
+
+                <input type="submit" value="Submit">
+
+            </form>
+
+        </div>
+    </body>
+
+</html>

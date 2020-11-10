@@ -7,3 +7,7 @@
 - gender
 - login_time
 - reason
+
+## config
+- add_dob
+- add_gender

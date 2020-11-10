@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<!-- MAIN LOGIN PAGE -->
+
 <html>  
     <head>
         <!-- include stylesheet and fonts -->
@@ -19,9 +21,9 @@
 
             <!-- this is the submission form that's sent back to app.py -->
             <form action="/" method="POST">
-                <input type="text" name="firstName" placeholder="Enter your first name">
-                <input type="text" name="lastName" placeholder="Enter your last name">
-                <select name="purpose">
+                <input type="text" name="firstName" placeholder="Enter your first name" required>
+                <input type="text" name="lastName" placeholder="Enter your last name" required>
+                <select name="purpose" required>
                     <option id = "title" value="" disabled selected>Reason for visit</option>
                     <option value="meeting">Meeting</option>                           
                     <option value="workshop">Workshop</option>
@@ -29,6 +31,24 @@
                     <option value="meeting">Professional Development</option>
                     <option value="meeting">Tour/Visit</option>
                 </select>
+
+                <!-- optional inputs: dob, gender -->
+                {% if add_dob %}
+                    <div class dobContainer>
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" name="dob" required>
+                    </div>
+                {% endif %}
+
+                {% if add_gender %}
+                    <select name="gender" required>
+                        <option id = "title" value="" disabled selected>Gender</option>
+                        <option value="M">Male</option>                           
+                        <option value="F">Female</option>
+                        <option value="O">Other</option>
+                    </select>
+                {% endif %}
+
                 <input type="submit" value="Submit">
             </form>
             <!-- end submission form -->
@@ -36,29 +56,18 @@
             <!-- check for correct form entry -->
             <div class="submitted">
                 {% if submitted %}
-                    {% if nameStatus and purposeStatus %}
-                    <p>
-                        Submitted!
-                    </p>
-                    {% elif nameStatus and not purposeStatus %}
-                    <p>
-                        Please select an option from the dropdown menu.
-                    </p>
-                    {% elif purposeStatus and not nameStatus %}
-                    <p>
-                        Please enter your full name.
-                    </p>
-                    {% else %}
-                    <p>
-                        Please complete the form before submitting.
-                    </p>
-                    {% endif %}                                      
+                    {% if submissionStatus %}
+                        <p>
+                            Submitted!
+                        </p>     
+                    {% else %}         
+                        <p>
+                            Submission Error.
+                        </p>   
+                    {% endif %}                    
                 {% endif %}
 
-            </div>
-            
+            </div> 
         </div>
-
-
     </body>
 </html>
