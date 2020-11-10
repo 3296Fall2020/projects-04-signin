@@ -110,7 +110,8 @@ input:checked + .slider:before {
     font-size: 1.1rem;
     font-family: 'Raleway', sans-serif;
     letter-spacing: .1rem;
-    padding: 1.5rem;
+    padding-left: 2rem;
+    position: absolute;
 }
 
 /* submit button styling */

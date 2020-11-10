@@ -9,5 +9,9 @@ class login_info():
         self.login_time = login_time
         self.reason = reason
 
-    def __getitem__(self, key):
-        return getattr(self, key)
+class config_info():
+
+    def __init__(self, config_id, add_dob, add_gender):
+        self.config_id = config_id
+        self.add_dob = add_dob
+        self.add_gender = add_gender

@@ -1,4 +1,5 @@
 import sqlite3
+from database.models.info_model import *
 
 DB = "database/logins.db"
 
@@ -12,3 +13,25 @@ def add_login(login):
     con.commit()
     con.close()
     return True
+
+def add_config(config):
+    con = sqlite3.connect(DB)
+    c = con.cursor()
+    insert_data = (config.add_dob, config.add_gender)
+    #insert data
+    c.execute('UPDATE config SET add_dob = ?, add_gender = ? WHERE config_id = 1', insert_data)
+    con.commit()
+    con.close()
+    return True
+
+def get_config():
+    con = sqlite3.connect(DB)
+    c = con.cursor()
+    c.execute("SELECT * FROM config")
+
+    config_data = c.fetchone()
+    
+    config = config_info(None, None, None)
+    config.config_id, config.add_dob, config.add_gender = config_data
+    
+    return config

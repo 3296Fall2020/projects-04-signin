@@ -6,21 +6,31 @@
     <head>
         <!-- include stylesheet and fonts -->
         <link rel="stylesheet" type="text/css" href="static/config.css">
+        <link rel="stylesheet" type="text/css" href="static/dropdown.css">
         <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
+        <div class="dropdown">
+            <!-- <button class="dropbtn">Menu</button> -->
+            <img src="static/menuicon.png" alt="dropdown" width="55" height="55">
+            <div class="dropdown-content">
+                <a href="/">Home</a>
+                <a href="/config">Settings</a>
+                <a href="#">Graphing</a>
+            </div>
+        </div>
         <div class="header">
             <p>
                 Configuration
             </p>
         </div>
         <div class="submission">
-
+            <!-- this is the submission form that's sent back to app.py -->
             <form action="/config" method="POST">
-
+                
                 <div class = switchContainer>
                     <label class="switch">
                         

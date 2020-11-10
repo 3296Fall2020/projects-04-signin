@@ -51,7 +51,9 @@ def submit():
 # CONFIG PAGE
 @app.route('/config')
 def config_page():
-    return render_template('config.html', add_dob = add_dob, add_gender = add_gender)
+    config = get_config()
+
+    return render_template('config.html', add_dob = config.add_dob, add_gender = config.add_gender)
 
 # CONFIG FORM SUBMISSION PAGE
 @app.route('/config', methods=['POST'])
@@ -59,15 +61,23 @@ def config_page_submit():
     global add_gender
     global add_dob
 
+    # ininitalize config info object
+    config_data = config_info(None, None, None)
+
     if 'add_gender' in request.form:
         add_gender = True
+        config_data.add_gender = 'on'
     else: 
         add_gender = False
 
     if 'add_dob' in request.form:
         add_dob = True
+        config_data.add_dob = 'on'
     else:
         add_dob = False
+
+    # add config to the database
+    add_config(config_data)
 
     return render_template('config.html', add_dob = add_dob, add_gender = add_gender)
 
