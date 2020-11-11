@@ -32,6 +32,16 @@ def get_config():
     config_data = c.fetchone()
     
     config = config_info(None, None, None)
-    config.config_id, config.add_dob, config.add_gender = config_data
+
+    # check if config is in the database
+    if config_data is None:
+        c.execute("INSERT INTO config(add_dob, add_gender) VALUES ('on', 'on')")
+        con.commit()
+        config.confid_id = 1
+        config.add_dob = 'on'
+        config.add_gender = 'on'
+    else:
+        config.config_id, config.add_dob, config.add_gender = config_data
     
+    con.close()
     return config
