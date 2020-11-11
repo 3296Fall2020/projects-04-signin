@@ -1,2 +1,3 @@
 webapp/database/__pycache__/
 webapp/database/models/__pycache__/
+webapp/database/logins.db
