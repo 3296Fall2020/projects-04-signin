@@ -82,7 +82,7 @@ def config_page_submit():
     return render_template('config.html', add_dob = add_dob, add_gender = add_gender)
 
 def run_app():
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
 
 if __name__ == "__main__":
     run_app()
