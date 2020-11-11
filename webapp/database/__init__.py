@@ -3,7 +3,8 @@ import sqlite3
 
 db_file = "database/logins.db"
 
-init_scripts = ["database/sql/create_tables.sql"]
+init_scripts = ["database/sql/create_tables.sql",
+                "database/sql/add_config.sql"]
 
 conn = sqlite3.connect(db_file)
 cursor = conn.cursor()
