@@ -7,14 +7,12 @@ from database.dbconn import *
 
 app = Flask(__name__)
 
-# additional input parameter booleans
-add_dob = False
-add_gender = False
-
 # HOME LOGIN PAGE
 @app.route('/')
 def home_page():
-    return render_template('index.html', add_dob = add_dob, add_gender = add_gender)
+    config = get_config()
+
+    return render_template('index.html', add_dob = config.add_dob, add_gender = config.add_gender)
 
 # LOGIN FORM SUBMISSION
 @app.route('/', methods=['POST'])
