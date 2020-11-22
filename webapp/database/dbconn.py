@@ -14,6 +14,19 @@ def add_login(login):
     con.close()
     return True
 
+def get_login():
+    con = sqlite3.connect(DB)
+    c = con.cursor()
+    c.execute("SELECT * FROM logins")  
+    # retrieve all rows from login data 
+    login_data = c.fetchall()
+    con.close()
+    return login_data
+
+def get_login_fields():
+    fields = ["ID", "First Name", "Last Name", "Gender", "Date of Birth", "Login Time", "Reason for Visit"]
+    return fields
+
 def add_config(config):
     con = sqlite3.connect(DB)
     c = con.cursor()
