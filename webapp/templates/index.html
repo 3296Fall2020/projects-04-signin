@@ -19,12 +19,13 @@
             <div class="dropdown-content">
                 <a href="/">Home</a>
                 <a href="/config">Settings</a>
+                <a href="/data">Data</a>
                 <a href="#">Graphing</a>
             </div>
         </div>
         <div class="header">
             <p>
-                Welcome
+                {{ title }}
             </p>
         </div>
         <div class = "submission">
@@ -38,13 +39,13 @@
                     <option value="meeting">Meeting</option>                           
                     <option value="workshop">Workshop</option>
                     <option value="consultation">Consultation</option>
-                    <option value="meeting">Professional Development</option>
-                    <option value="meeting">Tour/Visit</option>
+                    <option value="professional development">Professional Development</option>
+                    <option value="tour/visit">Tour/Visit</option>
                 </select>
 
-                <!-- optional inputs: dob, gender -->
+                <!-- optional inputs: dob, gender, additional instructions -->
                 {% if add_dob %}
-                    <div class dobContainer>
+                    <div class="inputContainer">
                         <label for="dob">Date of Birth:</label>
                         <input type="date" name="dob" required>
                     </div>
@@ -57,6 +58,15 @@
                         <option value="F">Female</option>
                         <option value="O">Other</option>
                     </select>
+                {% endif %}
+
+                {% if add_instructions %}
+                    <div class="inputContainer">
+                        <label for="instructions">Additional Instructions:</label>
+                    </div>
+                    <div class ="textareaContainer">
+                        <textarea name="instructions" rows="4" cols="50"></textarea>
+                    </div>
                 {% endif %}
 
                 <input type="submit" value="Submit">

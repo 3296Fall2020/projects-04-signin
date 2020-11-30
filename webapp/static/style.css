@@ -47,7 +47,7 @@ p {
 }
 /* input boxes and dropdown menu styling */
 
-input[type=text], select {
+input[type=text], select, textarea {
     width: 100%;
     padding: 1rem;
     margin: .5rem 0;
@@ -127,7 +127,12 @@ input[type=submit]:hover:after,
 
 /* dob styling */
 
-.dobContainer {
+.inputContainer {
+    width: 100%;
+    padding: .5rem;
+}
+
+.textareaContainer {
     width: 100%;
 }
 

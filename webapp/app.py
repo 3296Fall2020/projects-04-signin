@@ -2,6 +2,7 @@
 
 from flask import Flask, render_template, request
 import database
+import datetime
 from database.models.info_model import *
 from database.dbconn import *
 
@@ -12,14 +13,18 @@ app = Flask(__name__)
 def home_page():
     config = get_config()
 
-    return render_template('index.html', add_dob = config.add_dob, add_gender = config.add_gender)
+    return render_template('index.html', add_dob = config.add_dob, add_gender = config.add_gender, add_instructions = config.add_instructions, title = config.title)
 
 # LOGIN FORM SUBMISSION
 @app.route('/', methods=['POST'])
 def submit():
+    config = get_config()
 
     # ininitalize login_info object
-    login = login_info(None, None, None, None, None, None, None)
+    login = login_info(None, None, None, None, None, None, None, None)
+
+    # add login_time to the login_info object
+    login.login_time = get_current_time()
 
     # retrieve parameters from html form
 
@@ -39,45 +44,61 @@ def submit():
     # gender
     if 'gender' in request.form:
         login.gender = request.form['gender']
+    
+    # gender
+    if 'instructions' in request.form:
+        login.instructions = request.form['instructions']
 
     # add user input to the database
     submissionStatus = add_login(login)
 
     # return index html with parameters that show the form was submitted correctly
-    return render_template('index.html', submitted=True, submissionStatus = submissionStatus, add_dob = add_dob, add_gender = add_gender)
+    return render_template('index.html', submitted=True, submissionStatus = submissionStatus, add_dob = config.add_dob, add_gender = config.add_gender, add_instructions = config.add_instructions, title = config.title)
 
 # CONFIG PAGE
 @app.route('/config')
 def config_page():
     config = get_config()
 
-    return render_template('config.html', add_dob = config.add_dob, add_gender = config.add_gender)
+    return render_template('config.html', add_dob = config.add_dob, add_gender = config.add_gender, add_instructions = config.add_instructions, title = config.title)
 
 # CONFIG FORM SUBMISSION PAGE
 @app.route('/config', methods=['POST'])
 def config_page_submit():
-    global add_gender
-    global add_dob
 
     # ininitalize config info object
-    config_data = config_info(None, None, None)
+    config_data = config_info(None, None, None, None, None)
 
+    # gender
     if 'add_gender' in request.form:
-        add_gender = True
         config_data.add_gender = 'on'
-    else: 
-        add_gender = False
 
+    # dob
     if 'add_dob' in request.form:
-        add_dob = True
         config_data.add_dob = 'on'
-    else:
-        add_dob = False
+
+    # additional instructions
+    if 'add_instructions' in request.form:
+        config_data.add_instructions = 'on'
+
+    # title
+    config_data.title = request.form["title"]
 
     # add config to the database
-    add_config(config_data)
+    submissionStatus = add_config(config_data)
 
-    return render_template('config.html', add_dob = add_dob, add_gender = add_gender)
+    config = get_config()
+
+    return render_template('config.html', add_dob = config.add_dob, add_gender = config.add_gender, add_instructions = config.add_instructions, title = config.title, submissionStatus = submissionStatus)
+
+# DATA DISPLAY PAGE
+@app.route('/data')
+def data_page():
+    login_data = get_login()
+    login_fields = get_login_fields()
+
+    return render_template('data.html', logins = login_data, fields = login_fields)
+
 
 def run_app():
     app.run(debug=True, host='0.0.0.0')

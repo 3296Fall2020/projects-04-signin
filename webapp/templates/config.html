@@ -19,6 +19,7 @@
             <div class="dropdown-content">
                 <a href="/">Home</a>
                 <a href="/config">Settings</a>
+                <a href="/data">Data</a>
                 <a href="#">Graphing</a>
             </div>
         </div>
@@ -30,6 +31,8 @@
         <div class="submission">
             <!-- this is the submission form that's sent back to app.py -->
             <form action="/config" method="POST">
+
+                <input type="text" name="title" placeholder="Enter the login page title" required>
                 
                 <div class = switchContainer>
                     <label class="switch">
@@ -59,10 +62,33 @@
                     <label for="add_gender" class="textLabel">Include gender field</label>
                 </div>
 
+                <div class = switchContainer>
+                    <label class="switch">
+                        
+                        {% if add_instructions %}
+                            <input type="checkbox" id = "add_instructions" name="add_instructions" checked>
+                        {% else %}
+                            <input type="checkbox" id = "add_instructions" name="add_instructions">
+                        {% endif %}
+
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="add_instructions" class="textLabel">Include additional instructions field</label>
+                </div>
+
                 <input type="submit" value="Submit">
 
-            </form>
+            </form> 
+            <!-- END FORM -->
 
+            <!-- display submission message -->
+            <div class="submitted">
+                {% if submissionStatus %}
+                <p>
+                    Submitted!
+                </p>     
+                {% endif %}
+            </div> 
         </div>
     </body>
 

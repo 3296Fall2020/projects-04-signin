@@ -8,8 +8,11 @@
 - gender
 - login_time
 - reason
+- instructions
 
 ## config
 - config_id     PRIMARY KEY
 - add_dob
 - add_gender
+- add_instructions
+- title
