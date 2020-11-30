@@ -5,11 +5,14 @@ CREATE TABLE IF NOT EXISTS logins (
     gender TEXT,
     dob TEXT,
     login_time TEXT,
-    reason TEXT NOT NULL
+    reason TEXT NOT NULL,
+    instructions TEXT
 );
 
 CREATE TABLE IF NOT EXISTS config (
     config_id INTEGER PRIMARY KEY,
     add_dob TEXT,
-    add_gender TEXT
+    add_gender TEXT,
+    add_instructions TEXT,
+    title TEXT 
 );

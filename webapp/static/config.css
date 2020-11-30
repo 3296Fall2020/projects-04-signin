@@ -26,6 +26,17 @@ p {
     padding-top: 50px;
 }
 
+/* submission message styling */
+
+.submitted p {
+    width: 100%;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: .1rem;
+    font-size: 1rem;
+    padding: 1rem 0;
+}
+
 
 /*
     by default, styles for mobile screen.
@@ -38,6 +49,21 @@ p {
         margin: auto;
     }
 
+}
+
+/* title input styling */
+input[type=text] {
+    width: 100%;
+    padding: 1rem;
+    margin: .5rem 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: .08rem;
+    background-color: white;
 }
 
 /* switch styling */
