@@ -5,6 +5,14 @@ import database
 import datetime
 from database.models.info_model import *
 from database.dbconn import *
+import plotly
+import plotly.graph_objs as go
+import pandas as pd
+import numpy as np
+from dash import Dash
+import dash_core_components as dcc
+import dash_html_components as html
+import json
 
 app = Flask(__name__)
 
@@ -98,6 +106,23 @@ def data_page():
     login_fields = get_login_fields()
 
     return render_template('data.html', logins = login_data, fields = login_fields)
+
+# GRAPH PAGE
+@app.route('/graph')
+def graph_page():
+    count = 500
+    xScale = np.linspace(0, 100, count)
+    yScale = np.random.randn(count)
+
+     # Create a trace
+    trace = go.Scatter(
+        x = xScale,
+        y = yScale
+    )
+    data = [trace]
+    graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
+    return render_template('graph.html',
+                               graphJSON=graphJSON)
 
 
 def run_app():
