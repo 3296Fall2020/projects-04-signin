@@ -71,3 +71,32 @@ def get_current_time():
     year = str(current_time.year)
     login_time = hour + ":" + minute + " " + month + "/" + day + "/" + year
     return login_time
+
+def get_login_times():
+    con = sqlite3.connect(DB)
+    c = con.cursor()
+    c.execute("SELECT login_time FROM logins")  
+    # retrieve login times 
+    login_times = c.fetchall()
+    con.close()
+    #format hour times in an array
+    times = []
+    for time in login_times:
+        times.append(time[0][:2])
+    
+    #calculate time frequency
+    time_count = {}
+    for time in times:
+        if time in time_count:
+            time_count[time] += 1
+        else:
+            time_count[time] = 1
+    
+    times = []
+    for i in range(0, 24):
+        if str(i) in time_count:
+            times.append(time_count[str(i)])
+        else:
+            times.append(0)
+
+    return times

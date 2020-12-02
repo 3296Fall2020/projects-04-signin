@@ -110,9 +110,9 @@ def data_page():
 # GRAPH PAGE
 @app.route('/graph')
 def graph_page():
-    count = 500
-    xScale = np.linspace(0, 100, count)
-    yScale = np.random.randn(count)
+    count = 24
+    xScale = np.linspace(0, 24, count)
+    yScale = get_login_times()
 
      # Create a trace
     trace = go.Scatter(
@@ -121,9 +121,7 @@ def graph_page():
     )
     data = [trace]
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
-    return render_template('graph.html',
-                               graphJSON=graphJSON)
-
+    return render_template('graph.html', graphJSON=graphJSON)
 
 def run_app():
     app.run(debug=True, host='0.0.0.0')
