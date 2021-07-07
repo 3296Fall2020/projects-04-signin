@@ -1,0 +1,40 @@
+.body { 
+    text-align:center;
+    /* font-family: 'Righteous', cursive; */
+    color: #696969;
+}
+
+
+table {
+    margin:auto;     /* auto makes left and right margins the same, means centered */
+    text-align: center;
+    border-spacing: 10px;
+}
+
+/* table entries */
+td {  /* applies to any <td> tag in any element classed "clickSort" */
+    padding: 0.75rem;
+    background-color: white;
+    font-size:1rem;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: .08rem;
+    text-align: center;
+    /* border: 1px solid #949494; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
+ /* table headers */
+ th { 
+    padding:0.75rem;
+    background-color: #EBECF0;
+    font-weight: bold;
+    color: #145963;
+    font-size:1.3rem;
+    font-family: 'Righteous', cursive;
+    letter-spacing: .1rem;
+    white-space: nowrap; /* do not want multi word column headings (or sort icon) to wrap */
+    text-align: center;
+    /* border: 1px solid #949494; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

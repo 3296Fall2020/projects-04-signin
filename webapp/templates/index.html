@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<!-- MAIN LOGIN PAGE -->
+
+<html>  
+    <head>
+        <!-- include stylesheet and fonts -->
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+        <link rel="stylesheet" type="text/css" href="static/dropdown.css">
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <div class="dropdown">
+            <!-- <button class="dropbtn">Menu</button> -->
+            <img src="static/menuicon.png" alt="dropdown" width="55" height="55">
+            <div class="dropdown-content">
+                <a href="/">Home</a>
+                <a href="/config">Settings</a>
+                <a href="/data">Data</a>
+                <a href="/graph">Graphing</a>
+            </div>
+        </div>
+        <div class="header">
+            <p>
+                {{ title }}
+            </p>
+        </div>
+        <div class = "submission">
+
+            <!-- this is the submission form that's sent back to app.py -->
+            <form action="/" method="POST">
+                <input type="text" name="firstName" placeholder="Enter your first name" required>
+                <input type="text" name="lastName" placeholder="Enter your last name" required>
+                <select name="purpose" required>
+                    <option id = "title" value="" disabled selected>Reason for visit</option>
+                    <option value="meeting">Meeting</option>                           
+                    <option value="workshop">Workshop</option>
+                    <option value="consultation">Consultation</option>
+                    <option value="professional development">Professional Development</option>
+                    <option value="tour/visit">Tour/Visit</option>
+                </select>
+
+                <!-- optional inputs: dob, gender, additional instructions -->
+                {% if add_dob %}
+                    <div class="inputContainer">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" name="dob" required>
+                    </div>
+                {% endif %}
+
+                {% if add_gender %}
+                    <select name="gender" required>
+                        <option id = "title" value="" disabled selected>Gender</option>
+                        <option value="M">Male</option>                           
+                        <option value="F">Female</option>
+                        <option value="O">Other</option>
+                    </select>
+                {% endif %}
+
+                {% if add_instructions %}
+                    <div class="inputContainer">
+                        <label for="instructions">Additional Instructions:</label>
+                    </div>
+                    <div class ="textareaContainer">
+                        <textarea name="instructions" rows="4" cols="50"></textarea>
+                    </div>
+                {% endif %}
+
+                <input type="submit" value="Submit">
+            </form>
+            <!-- end submission form -->
+
+            <!-- check for correct form entry -->
+            <div class="submitted">
+                {% if submitted %}
+                    {% if submissionStatus %}
+                        <p>
+                            Submitted!
+                        </p>     
+                    {% else %}         
+                        <p>
+                            Submission Error.
+                        </p>   
+                    {% endif %}                    
+                {% endif %}
+
+            </div> 
+        </div>
+    </body>
+</html>

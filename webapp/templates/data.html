@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<!-- ADMIN CONFIG PAGE -->
+
+<html>  
+    <head>
+        <!-- include stylesheet and fonts -->
+        <link rel="stylesheet" type="text/css" href="static/dropdown.css">
+        <link rel="stylesheet" type="text/css" href="static/display.css">
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <div class="dropdown">
+            <!-- <button class="dropbtn">Menu</button> -->
+            <img src="static/menuicon.png" alt="dropdown" width="55" height="55">
+            <div class="dropdown-content">
+                <a href="/">Home</a>
+                <a href="/config">Settings</a>
+                <a href="/data">Data</a>
+                <a href="/graph">Graphing</a>
+            </div>
+        </div>
+        <div class="header">
+            <p>
+                Data Display
+            </p>
+        </div>
+        <table>
+            <!-- add headers to the table -->
+            <tr>
+            {% for field in fields %}
+                <th> {{ field }} </th>
+            {% endfor %}
+            </tr>
+            <!-- add data to the table -->
+            {% for login in logins %}
+            <tr>
+                {% for field in login %}
+                <td> {{ field }} </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+          </table>
+    </body>
+
+</html>
